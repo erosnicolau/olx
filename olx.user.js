@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OLX
 // @namespace    https://www.olx.ro/
-// @version      0.1
+// @version      0.1.1
 // @description  Hide unwanted ads
 // @author       Eros Nicolau
 // @match        https://www.olx.ro/*
@@ -75,7 +75,10 @@
     customCSS += ".hidden, .adcontainer-tr, .a, .rightBranding, [id^=Crt], #bnr {display: none !important}"
     customCSS += ".hiddenAd {height: 45px; min-height: unset !important; overflow: hidden; opacity: 0.15; display: block}"
     customCSS += ".hiddenAd td {display: block}"
-    customCSS += ".hiddenAd .tags, .hiddenAd h3, .hiddenAd .favorite-box {display: none;}"
+    customCSS += ".hiddenAd .tags, .hiddenAd .autovitro_label {display: none;}"
+    customCSS += ".hiddenAd td {display: block; float: left;}"
+    customCSS += ".hiddenAd .td-price {position: absolute; right: 20px}"
+    customCSS += ".hiddenAd .title-cell {max-width: calc(100% - 230px);}"
     customCSS += ".hiddenButton {opacity: 0.15}"
     if (style.styleSheet) style.styleSheet.cssText = customCSS
     else style.appendChild(document.createTextNode(customCSS))
