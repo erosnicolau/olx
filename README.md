@@ -8,7 +8,7 @@ The script also automatically hides any ads that come from Autovit.ro, in order 
 
 ## Installation
 1. Make sure you have [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) installed in your Chrome browser
-2. Install by clicking [here](https://github.com/erosnicolau/autovit/raw/master/autovit.user.js)
+2. Install by clicking [here](https://github.com/erosnicolau/olx/raw/master/olx.user.js)
 
 ## Usage
 Once installed, feel free to click the little monkey faces displayed on the listing ads (or individual ad pages), to hide / unhide that ad.
