@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OLX
 // @namespace    https://www.olx.ro/
-// @version      0.1.3
+// @version      0.1.4
 // @description  Hide unwanted ads
 // @author       Eros Nicolau
 // @match        https://www.olx.ro/*
@@ -16,8 +16,12 @@
     // Add the hide icons to the listing ads
     let cadAds = document.querySelectorAll('tr.wrap')
     cadAds.length > 0 && [...cadAds].map(e => {
-        let id = e.querySelector('table').getAttribute('data-id')
-        addMonkey(e, id)
+        let el = e.querySelectorAll('table'),
+            id = e.querySelector('table').getAttribute('data-id'),
+            filter = [...el].map(e => {
+                console.log(e, id)
+                addMonkey(e, id)
+            })
         if (e.querySelectorAll('.autovitro_label').length ==1) {
             let currentCars = JSON.parse(ls.getItem("Hidden Cars")) || [];
             !currentCars.includes(id) && ls.setItem("Hidden Cars", JSON.stringify([id, ...currentCars]))
@@ -31,8 +35,10 @@
     let currentCars = JSON.parse(ls.getItem("Hidden Cars")) || [];
     if (currentCars.length > 0) {
         currentCars.map(c => {
-            let that = document.querySelector('[data-hiddenid="'+c+'"]')
-            that && toggleCar(that, [...that.classList].includes('hiddenButton'))
+            let cars = document.querySelectorAll('[data-hiddenid="'+c+'"]')
+            if(cars.length > 0){
+                [...cars].map(car => toggleCar(car, [...car.classList].includes('hiddenButton')))
+            }
         })
     }
 
