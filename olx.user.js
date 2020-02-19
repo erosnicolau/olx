@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OLX
 // @namespace    https://www.olx.ro/
-// @version      0.1.5
+// @version      0.1.6
 // @description  Hide unwanted ads
 // @author       Eros Nicolau
 // @match        https://www.olx.ro/*
@@ -78,7 +78,7 @@
     style.type = "text/css"
     customCSS += ".hideMe {font-size: 18px; cursor: pointer; z-index: 6; position: absolute; right: -11px; top: 5px;}"
     customCSS += ".hideMe:hover {opacity: .5}"
-    customCSS += ".adcontainer-tr, .a, .rightBranding, [id^=Crt], #bnr {display: none !important}"
+    customCSS += ".adcontainer-tr, .a, .rightBranding, [id^=Crt], #bnr, .offers--top {display: none !important}"
     customCSS += ".hiddenAd:not(:hover) {height: 25px; min-height: unset !important; overflow: hidden; opacity: 0.15; display: block;}"
     customCSS += ".hiddenAd:not(:hover) td {display: block}"
     customCSS += ".hiddenAd:not(:hover) .tags, .hiddenAd:not(:hover) .autovitro_label {display: none;}"
