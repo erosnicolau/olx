@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OLX
 // @namespace    https://www.olx.ro/
-// @version      0.1.6
+// @version      0.1.7
 // @description  Hide unwanted ads
 // @author       Eros Nicolau
 // @match        https://www.olx.ro/*
@@ -12,6 +12,7 @@
     'use strict'
     console.clear()
     let ls = window.localStorage
+    let hideAutovit = true
 
     // Add the hide icons to the listing ads
     let cadAds = document.querySelectorAll('tr.wrap')
@@ -19,12 +20,16 @@
         let el = e.querySelectorAll('table'),
             id = e.querySelector('table').getAttribute('data-id'),
             filter = [...el].map(e => {
-                console.log(e, id)
                 addMonkey(e, id)
             })
-        if (e.querySelectorAll('.autovitro_label').length ==1) {
+        let autovitAd = e.querySelectorAll('.autovitro_label')
+        if (autovitAd.length ==1) {
             let currentCars = JSON.parse(ls.getItem("Hidden Cars")) || [];
             !currentCars.includes(id) && ls.setItem("Hidden Cars", JSON.stringify([id, ...currentCars]))
+            if(hideAutovit) {
+                let theAd = autovitAd[0].closest('tr.wrap')
+                theAd.style.display = 'none';
+            }
         }
     })
 
