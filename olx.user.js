@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OLX
 // @namespace    https://www.olx.ro/
-// @version      0.1.7
+// @version      0.1.8
 // @description  Hide unwanted ads
 // @author       Eros Nicolau
 // @match        https://www.olx.ro/*
@@ -84,14 +84,15 @@
     customCSS += ".hideMe {font-size: 18px; cursor: pointer; z-index: 6; position: absolute; right: -11px; top: 5px;}"
     customCSS += ".hideMe:hover {opacity: .5}"
     customCSS += ".adcontainer-tr, .a, .rightBranding, [id^=Crt], #bnr, .offers--top {display: none !important}"
-    customCSS += ".hiddenAd:not(:hover) {height: 25px; min-height: unset !important; overflow: hidden; opacity: 0.15; display: block;}"
+    customCSS += ".hiddenAd:not(:hover) {height: 25px !important; min-height: unset !important; overflow: hidden; opacity: 0.15; display: block;}"
+    customCSS += ".hiddenAd:not(:hover) tr + tr {display: none}"
     customCSS += ".hiddenAd:not(:hover) td {display: block}"
     customCSS += ".hiddenAd:not(:hover) .tags, .hiddenAd:not(:hover) .autovitro_label {display: none;}"
     customCSS += ".hiddenAd:not(:hover) td {display: block; float: left;}"
     customCSS += ".hiddenAd:not(:hover) .td-price {position: absolute; right: 20px; padding: 0 !important; transform: translateY(-5px);}"
     customCSS += ".hiddenAd:not(:hover) .title-cell {padding: 0 !important; transform: translateY(-5px);}"
     customCSS += ".hiddenAd:not(:hover) .title-cell h3 {font-size: 16px !important}"
-    customCSS += ".hiddenAd:not(:hover) .thumb {line-height: 0 !important; text-align: left}"
+    customCSS += ".hiddenAd:not(:hover) .thumb {line-height: 0 !important; text-align: left; max-height: 25px !important}"
     customCSS += ".hiddenAd:not(:hover) .thumb img {max-height: 25px !important}"
     customCSS += ".hiddenAd h3 a:hover, .hiddenAd h3 a:visited:hover, .hiddenAd h3 a:hover>*, .hiddenAd h3 a:visited:hover>* {color: #0098d0 !important; background: none !important}"
     customCSS += ".hiddenButton {opacity: 0.15}"
